@@ -15,9 +15,7 @@ export class AddNewToDoComponent implements OnInit {
     description: new FormControl(null, [Validators.required])
   });
 
-  constructor(public store: FluxToDoStore, @Inject(fluxDispatcherToken) private dispatcher: Subject<ToDoAction>) {
-
-  }
+  constructor(public store: FluxToDoStore, @Inject(fluxDispatcherToken) private dispatcher: Subject<ToDoAction>) { }
 
   AddNewTodo() {
     if(this.newToDoForm.valid && this.newToDoForm.dirty) {

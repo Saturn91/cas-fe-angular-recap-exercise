@@ -10,6 +10,7 @@ import { ToDoListComponent } from './to-do-manager/to-do-list/to-do-list.compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FLUX_CONFIG } from './to-do-manager/services/flux.configuration';
 import { FluxToDoStore } from './to-do-manager/services/flux-todo-store.service';
+import { ItemViewComponent } from './to-do-manager/item-view/item-view.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FluxToDoStore } from './to-do-manager/services/flux-todo-store.service'
     ToDoManagerComponent,
     AboutComponent,
     AddNewToDoComponent,
-    ToDoListComponent
+    ToDoListComponent,
+    ItemViewComponent
   ],
   imports: [
     BrowserModule,

@@ -8,9 +8,9 @@ import { fluxDispatcherToken } from "./flux.configuration";
 export class FluxToDoStore {
   public todos: ToDoItem[] = [];
   private orig: ToDoItem[] = [
-    new ToDoItem(0, "Make laundry", false),
-    new ToDoItem(1, "Clean kitchen", false),
-    new ToDoItem(2, "Pay bills", false)
+    new ToDoItem(1, "Make laundry", true),
+    new ToDoItem(2, "Clean kitchen", false),
+    new ToDoItem(3, "Pay bills", false)
   ]
 
   constructor(@Inject(fluxDispatcherToken) private dispatcher: Subject<ToDoAction>) {
@@ -20,16 +20,18 @@ export class FluxToDoStore {
 
       switch (action.type) {
         case ToDoActionTypes.Add:
-          console.log('add new ToDo: ' + action.description);
           this.todos.push(new ToDoItem(this.todos.length, action.description ? action.description: '', false))
           break;
         case ToDoActionTypes.Done:
+          item.done = true;
           break;
         case ToDoActionTypes.UnDone:
+          item.done = false;
           break;
         case ToDoActionTypes.Load:
-          //load from BE, but if null fill with placeholders
-          this.todos = this.orig;
+          if(this.todos.length == 0) {
+            this.todos = this.orig;
+          }
           break;
       }
     });

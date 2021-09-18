@@ -11,8 +11,6 @@ import { fluxDispatcherToken } from './services/flux.configuration';
   styleUrls: ['./to-do-manager.component.scss']
 })
 export class ToDoManagerComponent implements OnInit {
-  public todos: ToDoItem[] = [];
-
   constructor(public store: FluxToDoStore, @Inject(fluxDispatcherToken) private dispatcher: Subject<ToDoAction>) {
 
   }
