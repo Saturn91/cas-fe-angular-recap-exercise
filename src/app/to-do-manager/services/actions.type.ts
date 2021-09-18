@@ -2,7 +2,8 @@ export enum ToDoActionTypes {
   Add,
   Done,
   UnDone,
-  Load
+  Load,
+  Reset
 }
 
 export class ToDoAction {

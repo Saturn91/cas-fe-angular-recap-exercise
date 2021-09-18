@@ -19,4 +19,8 @@ export class ToDoManagerComponent implements OnInit {
     this.dispatcher.next(new ToDoAction(ToDoActionTypes.Load));
   }
 
+  Reset(): void {
+    this.dispatcher.next(new ToDoAction(ToDoActionTypes.Reset));
+  }
+
 }

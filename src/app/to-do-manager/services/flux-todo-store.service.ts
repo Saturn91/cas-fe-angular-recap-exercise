@@ -1,6 +1,7 @@
 import { Inject, Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { ToDoItem } from "src/app/models/todo.model";
+import { cloneArray } from "src/app/shared/helpers.util";
 import { ToDoAction, ToDoActionTypes } from "./actions.type";
 import { fluxDispatcherToken } from "./flux.configuration";
 
@@ -30,8 +31,11 @@ export class FluxToDoStore {
           break;
         case ToDoActionTypes.Load:
           if(this.todos.length == 0) {
-            this.todos = this.orig;
+            this.todos = cloneArray(this.orig);
           }
+          break;
+        case ToDoActionTypes.Reset:
+          this.todos = cloneArray(this.orig);
           break;
       }
     });
