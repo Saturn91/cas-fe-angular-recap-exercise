@@ -3,10 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ToDoManagerComponent } from './to-do-manager/to-do-manager.component';
 
+
+
+export const routeNames = {
+  todos: 'todos',
+  about: 'about'
+}
+
 const routes: Routes = [
-  {path: 'todos', component: ToDoManagerComponent},
-  {path: 'about', component: AboutComponent},
-  { path: '',   redirectTo: '/todos', pathMatch: 'full' },
+  {path: routeNames.todos, component: ToDoManagerComponent},
+  {path: routeNames.about, component: AboutComponent},
+  {path: '',   redirectTo: routeNames.todos, pathMatch: 'full'},
 ];
 
 @NgModule({

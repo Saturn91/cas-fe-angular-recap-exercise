@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { routeNames } from './app-routing.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Todo Manager';
+
+  public routeList = routeNames;
+
+  constructor(public router: Router) { }
 }

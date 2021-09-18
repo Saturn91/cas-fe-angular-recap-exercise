@@ -4,8 +4,8 @@
 <body>
   <h1>Simple ToDo App</h1>
   <nav>
-    <a routerLink = "todos"> ToDo-List</a>
-    <a routerLink = "about"> About</a>
+    <a routerLink = '/{{routeList.todos}}' [ngClass] = "{'selected': '/'+ this.routeList.todos == this.router.url}"> ToDo-List</a>
+    <a routerLink = '/{{routeList.about}}' [ngClass] = "{'selected': '/'+ this.routeList.about == this.router.url}"> About</a>
   </nav>
   <router-outlet></router-outlet>
 </body>
