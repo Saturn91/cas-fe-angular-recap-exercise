@@ -1,0 +1,8 @@
+<form novalidate [formGroup]="newToDoForm" (ngSubmit)="AddNewTodo()">
+  <input
+    type='text'
+    formControlName="description"
+    placeholder='description'
+  />
+  <button type='submit'>Add new ToDo</button>
+</form>

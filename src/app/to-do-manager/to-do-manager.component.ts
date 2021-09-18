@@ -8,9 +8,9 @@ import { ToDoItem } from '../models/todo.model';
 })
 export class ToDoManagerComponent implements OnInit {
   public todos: ToDoItem[] = [
-    new ToDoItem("Make laundry", false),
-    new ToDoItem("Clean kitchen", false),
-    new ToDoItem("Pay bills", false)
+    new ToDoItem(0, "Make laundry", false),
+    new ToDoItem(1, "Clean kitchen", false),
+    new ToDoItem(2, "Pay bills", false)
   ]
 
   constructor() {
