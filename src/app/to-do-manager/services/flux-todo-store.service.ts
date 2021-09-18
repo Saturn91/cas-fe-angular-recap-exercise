@@ -20,7 +20,7 @@ export class FluxToDoStore {
 
       switch (action.type) {
         case ToDoActionTypes.Add:
-          this.todos.push(new ToDoItem(this.todos.length, action.description ? action.description: '', false))
+          this.todos.push(new ToDoItem(this.todos.length+1, action.description ? action.description: '', false))
           break;
         case ToDoActionTypes.Done:
           item.done = true;
