@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ToDoItem } from '../models/todo.model';
+import { ToDoItem } from '../../models/todo.model';
 
 @Component({
   selector: 'ToDoList',
