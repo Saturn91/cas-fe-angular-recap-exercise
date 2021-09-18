@@ -1,3 +1,8 @@
+<h1>ToDo</h1>
 <ul>
-  <li *ngFor="let todo of todos"><ItemView [todo] = 'todo'></ItemView></li>
+  <li *ngFor="let todo of (todos | todosPipe: false)"><ItemView [todo] = 'todo'></ItemView></li>
+</ul>
+<h1>Done</h1>
+<ul>
+  <li *ngFor="let done of (todos | todosPipe: true)"><ItemView [todo] = 'done'></ItemView></li>
 </ul>

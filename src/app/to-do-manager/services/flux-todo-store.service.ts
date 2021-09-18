@@ -22,12 +22,15 @@ export class FluxToDoStore {
       switch (action.type) {
         case ToDoActionTypes.Add:
           this.todos.push(new ToDoItem(this.todos.length+1, action.description ? action.description: '', false))
+          this.todos = cloneArray(this.todos);
           break;
         case ToDoActionTypes.Done:
           item.done = true;
+          this.todos = cloneArray(this.todos);
           break;
         case ToDoActionTypes.UnDone:
           item.done = false;
+          this.todos = cloneArray(this.todos);
           break;
         case ToDoActionTypes.Load:
           if(this.todos.length == 0) {
