@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { ToDoItem } from '../models/todo.model';
+import { ToDoAction, ToDoActionTypes } from './services/actions.type';
+import { FluxToDoStore } from './services/flux-todo-store.service';
+import { fluxDispatcherToken } from './services/flux.configuration';
 
 @Component({
   selector: 'app-to-do-manager',
@@ -7,18 +11,14 @@ import { ToDoItem } from '../models/todo.model';
   styleUrls: ['./to-do-manager.component.scss']
 })
 export class ToDoManagerComponent implements OnInit {
-  public todos: ToDoItem[] = [
-    new ToDoItem(0, "Make laundry", false),
-    new ToDoItem(1, "Clean kitchen", false),
-    new ToDoItem(2, "Pay bills", false)
-  ]
+  public todos: ToDoItem[] = [];
 
-  constructor() {
+  constructor(public store: FluxToDoStore, @Inject(fluxDispatcherToken) private dispatcher: Subject<ToDoAction>) {
 
   }
 
   ngOnInit(): void {
-
+    this.dispatcher.next(new ToDoAction(ToDoActionTypes.Load));
   }
 
 }

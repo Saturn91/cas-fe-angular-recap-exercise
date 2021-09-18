@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { ToDoAction, ToDoActionTypes } from '../services/actions.type';
+import { FluxToDoStore } from '../services/flux-todo-store.service';
+import { fluxDispatcherToken } from '../services/flux.configuration';
 
 @Component({
   selector: 'AddNewToDo',
@@ -11,11 +15,13 @@ export class AddNewToDoComponent implements OnInit {
     description: new FormControl(null, [Validators.required])
   });
 
-  constructor() { }
+  constructor(public store: FluxToDoStore, @Inject(fluxDispatcherToken) private dispatcher: Subject<ToDoAction>) {
+
+  }
 
   AddNewTodo() {
     if(this.newToDoForm.valid && this.newToDoForm.dirty) {
-      alert("Add new Todo: " + this.newToDoForm.value.description);
+      this.dispatcher.next(new ToDoAction(ToDoActionTypes.Add, undefined, this.newToDoForm.value.description));
     } else {
       alert("a description is required!");
     }
