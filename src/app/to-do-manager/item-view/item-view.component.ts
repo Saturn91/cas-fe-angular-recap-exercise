@@ -12,7 +12,7 @@ import { fluxDispatcherToken } from '../services/flux.configuration';
 })
 export class ItemViewComponent implements OnInit {
   @Input()
-  public todo: ToDoItem = new ToDoItem(-1, '', false);
+  public todo: ToDoItem = new ToDoItem(-1, '', false, false);
 
   constructor(public store: FluxToDoStore, @Inject(fluxDispatcherToken) private dispatcher: Subject<ToDoAction>) { }
 
@@ -21,6 +21,10 @@ export class ItemViewComponent implements OnInit {
 
   OnCheckBoxChange() {
     this.dispatcher.next(new ToDoAction(this.todo.done == true ? ToDoActionTypes.UnDone : ToDoActionTypes.Done, this.todo.id))
+  }
+
+  DeleteTodo() {
+    this.dispatcher.next(new ToDoAction(ToDoActionTypes.Delete, this.todo.id));
   }
 
 }

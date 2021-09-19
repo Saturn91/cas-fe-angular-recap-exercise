@@ -1,4 +1,5 @@
 <div [className]="'classView'">
   <input type="checkbox" (change)="OnCheckBoxChange()" [checked]="todo.done" >
   <p>{{todo?.description}}</p>
+  <button (click)="DeleteTodo()">x</button>
 </div>

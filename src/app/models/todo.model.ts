@@ -1,3 +1,3 @@
 export class ToDoItem {
-  constructor(public id: number, public description: string, public done: boolean) { }
+  constructor(public id: number, public description: string, public done: boolean, public deleted: boolean) { }
 }

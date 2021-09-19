@@ -3,6 +3,7 @@ export enum ToDoActionTypes {
   Done,
   UnDone,
   Load,
+  Delete,
   Reset
 }
 
