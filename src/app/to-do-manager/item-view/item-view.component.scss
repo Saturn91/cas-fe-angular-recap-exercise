@@ -1,11 +1,13 @@
 .classView {
+  --bar_height: 40px;
+
   display: flex;
   background-color: var(--col1);
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   border-radius: 10px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 1.2rem;
+  height: var(--bar_height);
+  line-height: var(--bar_height);
+  font-size: 1rem;
 }
 
 .classView p {
@@ -14,12 +16,13 @@
 
 button {
   padding: 0;
-  height: 40px;
-  width: 40px;
-  min-width: 40px;
+  height: var(--bar_height);
+  width: var(--bar_height);
+  min-width: var(--bar_height);
   background-color: red;
   color: white;
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   border-style: none;
   text-align: center;
   font-size: 1.5rem;
@@ -30,15 +33,15 @@ button {
 .container {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 55px;
   margin-bottom: 12px;
+  margin-right: 0;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin-right: 20px;
   height: 100%;
 }
 
@@ -56,10 +59,11 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  height: 40px;
-  width: 40px;
+  height: var(--bar_height);
+  width: var(--bar_height);
   background-color: #eee;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 /* On mouse-over, add a grey background color */
@@ -100,4 +104,20 @@ button {
 .hitbox {
   display: flex;
   width: 100%
+}
+
+@media (min-width: 800px) {
+  .classView {
+    --bar_height: 60px;
+    font-size: 1.2rem;
+  }
+
+  .container {
+    margin-right: 30px;
+  }
+
+  .container .checkmark:after {
+    left: 23px;
+    top: 18px;
+  }
 }
