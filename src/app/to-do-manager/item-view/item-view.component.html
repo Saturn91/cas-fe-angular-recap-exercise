@@ -1,5 +1,10 @@
 <div class='classView'>
-  <input type="checkbox" (change)="OnCheckBoxChange()" [checked]="todo.done" >
-  <p>{{todo?.description}}</p>
+  <div class='hitbox' (click)="OnCheckBoxChange()">
+    <label class="container">
+      <input type="checkbox" (change)="OnCheckBoxChange()" [checked]="todo.done">
+      <span class="checkmark"></span>
+    </label>
+    <p>{{todo?.description}}</p>
+  </div>
   <button (click)="DeleteTodo()">x</button>
 </div>
