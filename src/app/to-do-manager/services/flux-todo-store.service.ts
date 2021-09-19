@@ -4,6 +4,7 @@ import { ToDoItem } from "src/app/models/todo.model";
 import { cloneArray } from "src/app/shared/helpers.util";
 import { ToDoAction, ToDoActionTypes } from "./actions.type";
 import { fluxDispatcherToken } from "./flux.configuration";
+import { hasToDosStored, loadTodos, save } from "./todo-localstorage.service";
 
 @Injectable()
 export class FluxToDoStore {
@@ -23,18 +24,25 @@ export class FluxToDoStore {
         case ToDoActionTypes.Add:
           this.todos.push(new ToDoItem(this.todos.length+1, action.description ? action.description: '', false))
           this.todos = cloneArray(this.todos);
+          save(this.todos);
           break;
         case ToDoActionTypes.Done:
           item.done = true;
           this.todos = cloneArray(this.todos);
+          save(this.todos);
           break;
         case ToDoActionTypes.UnDone:
           item.done = false;
           this.todos = cloneArray(this.todos);
+          save(this.todos);
           break;
         case ToDoActionTypes.Load:
           if(this.todos.length == 0) {
-            this.todos = cloneArray(this.orig);
+            if(hasToDosStored()) {
+              this.todos = loadTodos();
+            } else {
+              this.todos = cloneArray(this.orig);
+            }
           }
           break;
         case ToDoActionTypes.Reset:
