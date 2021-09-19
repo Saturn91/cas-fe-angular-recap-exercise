@@ -1,7 +1,68 @@
 nav a {
-  margin-right: 20px;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1.25rem;
+}
+
+.radius-left {
+  border-top-left-radius: 20px;
+}
+
+nav a:hover {
+  background-color: var(--col3_hover);
+  color: var(--col_text)
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--col1);
+  height: 30px;
+  color: var(--col_text);
+  border-top-left-radius: 20px;
 }
 
 .selected {
-  color: green;
+  background-color: var(--col3);
+  color: var(--col_text);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--col_back);
+}
+
+.mainComponent {
+  margin: 20px;
+  width: 100%;
+  background-color: var(--col2);
+  border-color: var(--col2_ligth);
+  border-width: 4px;
+  border-style: solid;
+  color: var(--col_text);
+  overflow-y: auto;
+}
+
+.subComponent {
+  padding: 5px;
+}
+
+@media(min-width: 800px) {
+  .mainComponent {
+    width: 700px;
+  }
+
+  nav {
+    height: 50px;
+  }
+
+  nav a {
+    line-height: 50px;
+    font-size: 2rem;
+  }
 }

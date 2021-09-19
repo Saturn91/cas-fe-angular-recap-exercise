@@ -2,12 +2,16 @@
   <base href="/about">
 </head>
 <body>
-  <h1>Simple ToDo App</h1>
-  <nav>
-    <a routerLink = '/{{routeList.todos}}' [ngClass] = "{'selected': '/'+ this.routeList.todos == this.router.url}"> ToDo-List</a>
-    <a routerLink = '/{{routeList.about}}' [ngClass] = "{'selected': '/'+ this.routeList.about == this.router.url}"> About</a>
-  </nav>
-  <router-outlet></router-outlet>
+  <div class='mainComponent radius-left'>
+    <nav>
+      <a class='radius-left' routerLink = '/{{routeList.todos}}' [ngClass] = "{'selected': '/'+ this.routeList.todos == this.router.url}"> ToDo-List</a>
+      <a routerLink = '/{{routeList.about}}' [ngClass] = "{'selected': '/'+ this.routeList.about == this.router.url}"> About</a>
+      <a href='https://saturn91.dev' target="_blank">Saturn91</a>
+    </nav>
+    <div class='subComponent'>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </body>
 
 

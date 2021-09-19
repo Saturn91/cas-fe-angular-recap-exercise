@@ -1,0 +1,33 @@
+.todoInput {
+  color: var(--col3);
+  background-color: var(--col1);
+  border-style: none;
+  width: 70%;
+  height: 30px;
+  padding: 5px;
+}
+
+.addToDoBtn {
+  color: var(--col_text);
+  background-color: var(--col3);
+  height: 40px;
+  padding: 5px;
+  width: calc(30% - 10px);
+  border-style: none;
+}
+
+.addToDoBtn:hover {
+  background-color: var(--col3_hover);
+}
+
+@media(min-width: 800px) {
+  .todoInput {
+    width: 85%;
+    font-size: 1.2rem;
+  }
+
+  .addToDoBtn {
+    width: calc(15% - 10px);
+    font-size: 1.2rem;
+  }
+}

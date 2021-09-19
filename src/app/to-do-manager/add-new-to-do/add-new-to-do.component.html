@@ -1,8 +1,12 @@
 <form novalidate [formGroup]="newToDoForm" (ngSubmit)="AddNewTodo()">
   <input
+    class='todoInput'
     type='text'
     formControlName="description"
-    placeholder='description'
+    placeholder='new todo'
   />
-  <button type='submit'>Add new ToDo</button>
+  <button
+    class='addToDoBtn'
+    type='submit'>
+  Add</button>
 </form>

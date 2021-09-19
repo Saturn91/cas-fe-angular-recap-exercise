@@ -26,5 +26,4 @@ export class ItemViewComponent implements OnInit {
   DeleteTodo() {
     this.dispatcher.next(new ToDoAction(ToDoActionTypes.Delete, this.todo.id));
   }
-
 }

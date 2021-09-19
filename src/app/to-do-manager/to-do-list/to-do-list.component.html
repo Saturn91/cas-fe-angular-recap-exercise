@@ -1,8 +1,14 @@
-<h1>ToDo</h1>
-<ul>
-  <li *ngFor="let todo of (todos | todosPipe: false)"><ItemView [todo] = 'todo'></ItemView></li>
-</ul>
-<h1>Done</h1>
-<ul>
-  <li *ngFor="let done of (todos | todosPipe: true)"><ItemView [todo] = 'done'></ItemView></li>
-</ul>
+<div class='taskList'>
+  <h1>ToDo</h1>
+  <p *ngIf="(todos | todosPipe: false).length <= 0">no unfinished Tasks</p>
+  <ul>
+    <li *ngFor="let todo of (todos | todosPipe: false)"><ItemView [todo] = 'todo'></ItemView></li>
+  </ul>
+</div>
+<div class='taskList'>
+  <h1>Done</h1>
+  <p *ngIf="(todos | todosPipe: true).length <= 0">No finished tasks yet</p>
+  <ul>
+    <li *ngFor="let done of (todos | todosPipe: true)"><ItemView [todo] = 'done'></ItemView></li>
+  </ul>
+</div>

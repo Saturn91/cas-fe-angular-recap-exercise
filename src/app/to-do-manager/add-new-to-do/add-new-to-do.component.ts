@@ -20,6 +20,7 @@ export class AddNewToDoComponent implements OnInit {
   AddNewTodo() {
     if(this.newToDoForm.valid && this.newToDoForm.dirty) {
       this.dispatcher.next(new ToDoAction(ToDoActionTypes.Add, undefined, this.newToDoForm.value.description));
+      this.newToDoForm.reset();
     } else {
       alert("a description is required!");
     }

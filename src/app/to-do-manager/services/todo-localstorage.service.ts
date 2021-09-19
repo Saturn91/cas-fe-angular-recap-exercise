@@ -14,8 +14,6 @@ export function hasToDosStored(): boolean {
 }
 
 export function save(todos: ToDoItem[]): void {
-  console.log('save!');
-  console.log(todos);
   localStorage.setItem(getToDoSubPath(todosStored), 'true');
   localStorage.setItem(getToDoSubPath(todosListStored), JSON.stringify(todos));
 }
