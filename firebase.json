@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/cas-fe-angular-recap-exercise",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
