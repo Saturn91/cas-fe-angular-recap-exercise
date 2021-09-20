@@ -1,13 +1,19 @@
 .classView {
   --bar_height: 40px;
-
-  display: flex;
   background-color: var(--col1);
+  display: flex;
   margin-bottom: 30px;
-  border-radius: 10px;
+  border-radius: 12px;
   height: var(--bar_height);
   line-height: var(--bar_height);
   font-size: 1rem;
+  border-style: solid;
+  border-color: var(--col2);
+}
+
+.classView:hover {
+  background-color: var(--col1_hover);
+  border-color: var(--col3);
 }
 
 .classView p {
@@ -27,6 +33,7 @@ button {
   text-align: center;
   font-size: 1.5rem;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 /* The container */
@@ -66,14 +73,22 @@ button {
   border-bottom-left-radius: 10px;
 }
 
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
   background-color: #2196F3;
+}
+
+.container input:checked ~ .checkmark:hover {
+  background-color: #00b7ff;
+}
+
+.container :not(input:checked) ~ .checkmark {
+  background-color: #6b6b6b;
+}
+
+/* On mouse-over (unselected), add a grey background color */
+.container :not(input:checked) ~ .checkmark:hover {
+  background-color: #ccc;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -85,6 +100,10 @@ button {
 
 /* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container :not(input:checked) ~ .checkmark:after {
   display: block;
 }
 
@@ -103,7 +122,10 @@ button {
 
 .hitbox {
   display: flex;
-  width: 100%
+  width: 100%;
+  cursor: pointer;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 @media (min-width: 800px) {
